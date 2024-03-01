@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Machine Problem 1</title>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="content-wrapper">
+            <h1>Machine Problem 1</h1>
+            <h2>Part 1</h2>
+            <p>Solves for accuracy and precision.</p>
+
+            <div class="form-wrapper">
+                <form id="form">
+                    <p>a = 0 (fixed)</p>
+                    <label for="tv">Input a number</label>
+                    <input type="text" id="InputVal" required><br><br>
+                    <label for="x">Input the number of decimal places: </label>
+                    <input type="number" id="decimalPlaces" required><br><br>
+                    <button type="button" onclick="compute()">Calculate</button>
+                </form>
+                <div class="predefined-values">
+                    <h5>Predefined Values</h5>
+                    <button class="" id="epsilonButton">ε</button>
+                    <button class="" id="goldenratioButton">φ</button>
+                    <button class="" id="piButton">π</button>
+                </div>
+            </div>
+
+            <div class="result-wrapper">
+                <h2>Result</h2>
+                <p>Approximated Value (Chopped): <span id="choppedVal"></span></p>
+                <p>Approximated Value (Rounded): <span id="RoundedVal"></span></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="accuracy.js"></script>
+</body>
+</html>
