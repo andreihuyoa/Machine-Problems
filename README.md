@@ -1,0 +1,2 @@
+# mpfuckingONE
+ i hate MATH ❤️
