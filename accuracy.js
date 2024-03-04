@@ -50,7 +50,7 @@ function calculateAccuracyAndPrecision() {
     if (precision == precision) {
         precision = accuracy;
     } else {
-        precision = ;
+        precision = newaccuracy;
     }
 
     document.getElementById('accuracy-result').textContent = `Accuracy: ${accuracy}%`;
