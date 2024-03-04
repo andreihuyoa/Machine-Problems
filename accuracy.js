@@ -1,11 +1,10 @@
-//pre-defined values
-const epsilon = 2.220446049250313e-16;
-//if math.epsilon it becomes undefined
+//pre-defined values / constants
 
-const pie = Math.PI;
-
-//not sure pa sa golden ratio
-const goldenRatio = 1.618033988749895;
+const predefined_val = {
+    epsilon: 2.220446049250313e-16, //if math.epsilon it becomes undefined
+    pie: Math.PI,
+    goldenRatio: 1.618033988749895,
+};
 
 // const fraction = what;
 // const deci = decim;
@@ -14,43 +13,63 @@ const goldenRatio = 1.618033988749895;
 //-----
 //wala pa yung ibang irrational numbers like mga sqrt of 2 ganon ganon
 
+//event listeners
 document.getElementById('epsilonButton').addEventListener('click', function () {
-    document.getElementById('InputVal').value += epsilon;
+    document.getElementById('userInput').value += epsilon;
 });
 
 document.getElementById('goldenratioButton').addEventListener('click', function () {
-    document.getElementById('InputVal').value += goldenRatio;
+    document.getElementById('userInput').value += goldenRatio;
 });
 
 document.getElementById('piButton').addEventListener('click', function () {
-    document.getElementById('InputVal').value += pie;
+    document.getElementById('userInput').value += pie;
 });
 
-function compute() {
+function calculateAccuracyAndPrecision() {
     //get value from user input
-    const inputValue = parseFloat(document.getElementById('InputVal').value);
-    const decimalPlaces = parseInt(document.getElementById('decimalPlaces').value);
+    const userInput = parseFloat(document.getElementById('InputVal').value);
+    const decimalPlaces = parseInt(document.getElementById('decimalPlaces').value) || 0;
 
+    //validates user input
+    if (isNaN(userInput)) {
+        alert('Please enter a valid number');
+        return;
+    }
+
+    const trueValue = 1; //eto should be from user if pumili siya sa buttons yun yung true value
+
+    const absoluteError = Math.abs(userInput - trueValue);
+    // or const absoluteError2 = trueVal - AbsolVal;
+
+    const accuracy = (1 - absoluteError / trueValue) * 100;
+    accuracy = accuracy.toFixed(decimalPlaces);
+
+    const precision = accuracy; // since theres only one true value, precision is same
+
+    if (precision == precision) {
+        precision = accuracy;
+    } else {
+        precision = ;
+    }
+
+    document.getElementById('accuracy-result').textContent = `Accuracy: ${accuracy}%`;
+    document.getElementById('precision-result').textContent = `Precision: ${precision}%`;
     //next step is find how to solve two values inside one text box
 
-    //yung result from inputValue should be mag eequal to true value? or it would be the new true value
+    //yung result from userInput should be mag eequal to true value? or it would be the new true value
 
     //so yung pre-defined values should  be clickable lang tas mapupunta siya sa textbox (input ng user) and then after pindot ng compute ssolve niya so mageget yung true value then solve na mga errors n such.
-}
 
-function accuracy_and_precision() {
-    const trueVal = 1;
-    const AbsolVal = 1;
+    //di ko sure kung ganitong function
 }
-
-//functions
 
 function chop() {}
 
 function round() {}
 
 function AbsolError() {
-    const absoluteError = Math.abs(predefined_val - inputValue);
+    const absoluteError = Math.abs(predefined_val - userInput);
 
     //eto nasa paper
     const absoluteError2 = trueVal - AbsolVal;
@@ -62,3 +81,6 @@ function PercError() {
     //eto nasa paper
     const percentageError2 = (absoluteError / trueVal) * 100;
 }
+
+// click and solve instead of submitting a form?
+document.getElementById('compute-button').addEventListener('click', calculateAccuracyAndPrecision);
