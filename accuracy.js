@@ -10,22 +10,14 @@ const predefined_val = {
 // const squareRoots = bru;
 //wala pa yung ibang irrational numbers like mga sqrt of 2 ganon ganon
 
-//event listeners
-document.getElementById('epsilonButton').addEventListener('click', function () {
-    document.getElementById('userInput').value += epsilon;
-});
+//Math.sinh(x = value kung anong fuck nasa loob neto)
 
-document.getElementById('goldenratioButton').addEventListener('click', function () {
-    document.getElementById('userInput').value += goldenRatio;
-});
-
-document.getElementById('piButton').addEventListener('click', function () {
-    document.getElementById('userInput').value += pie;
-});
+//event listeners in a one function
+const trueValue = document.getElementById('');
 
 function calculateAccuracyAndPrecision() {
     //get value from user input
-    const userInput = parseFloat(document.getElementById('InputVal').value);
+    const userInput = parseFloat(document.getElementById('InputVal').value); //dito magiinput user ng custom equation niya then pag click ng compute button, lalabas sa trueValue yung sagot
     const trueValue = parseFloat(document.getElementById('trueValue').value); //eto should be from user if pumili siya sa buttons yun yung true value
     const decimalPlaces = parseInt(document.getElementById('decimalPlaces').value) || 0;
 
