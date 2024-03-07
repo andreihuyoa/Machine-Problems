@@ -1,5 +1,4 @@
 //pre-defined values / constants
-
 const predefined_val = {
     epsilon: 2.220446049250313e-16, //if math.epsilon it becomes undefined
     pie: Math.PI,
@@ -9,8 +8,6 @@ const predefined_val = {
 // const fraction = what;
 // const deci = decim;
 // const squareRoots = bru;
-
-//-----
 //wala pa yung ibang irrational numbers like mga sqrt of 2 ganon ganon
 
 //event listeners
@@ -29,6 +26,7 @@ document.getElementById('piButton').addEventListener('click', function () {
 function calculateAccuracyAndPrecision() {
     //get value from user input
     const userInput = parseFloat(document.getElementById('InputVal').value);
+    const trueValue = parseFloat(document.getElementById('trueValue').value); //eto should be from user if pumili siya sa buttons yun yung true value
     const decimalPlaces = parseInt(document.getElementById('decimalPlaces').value) || 0;
 
     //validates user input
@@ -37,10 +35,9 @@ function calculateAccuracyAndPrecision() {
         return;
     }
 
-    const trueValue = 1; //eto should be from user if pumili siya sa buttons yun yung true value
-
     const absoluteError = Math.abs(userInput - trueValue);
     // or const absoluteError2 = trueVal - AbsolVal;
+    //formula ng to get absolute error
 
     const accuracy = (1 - absoluteError / trueValue) * 100;
     accuracy = accuracy.toFixed(decimalPlaces);
