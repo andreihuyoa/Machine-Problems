@@ -18,8 +18,12 @@
             <div class="form-wrapper">
                 <form id="form">
                     <div>
-
+                        <h5>How to use:</h5>
+                        <p>Step 1: tanga ka ba</p>
+                        <p>Step 2: tanga ka ba</p>
+                        <br>
                     </div>
+
                     <label for="user">Input a custom equation</label>
                     <input type="text" id="userInput" required>
                     <br><br>
@@ -33,29 +37,30 @@
                     <br><br>
 
                     <label for="x">Input the number of decimal places: </label>
-                    <input type="number" id="decimalPlaces" required><br><br>
-                    <button type="button" onclick="compute()">Calculate</button>
+                    <input type="number" id="decimalPlaces" min="0" step="1"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"><br><br>
+                    <button type="button" id="compute-button">Calculate</button>
                 </form>
 
                 <div class="predefined-values">
                     <h5>Predefined Values</h5>
                     <div id="buttonParentsEventListener" class="">
-                        <button class="" id="epsilonButton">ε</button>
-                        <button class="" id="goldenratioButton">φ</button>
-                        <button class="" id="piButton">π</button>
+                        <button class="" id="epsilonButton" data-value="epsilon">ε</button>
+                        <button class="" id="goldenratioButton" data-value="pie">φ</button>
+                        <button class="" id="piButton" data-value="goldenRatio">π</button>
                     </div>
                 </div>
             </div>
 
             <div class="result-wrapper">
                 <h2>Chopping</h2>
-                <p>dito lalabas yung chopped value</p>
+                <p id="chopping"></p>
                 <p>Absolute Error: <span id="ChoppingAE"></span></p>
                 <p>Percentage Error: <span id="Chopping%E"></span></p>
                 <br>
                 <br>
                 <h2>Rounding</h2>
-                <p>dito lalabas yung rounded value</p>
+                <p id="rounding"></p>
                 <p>Absolute Error: <span id="RoundingAE"></span></p>
                 <p>Percentage Error: <span id="Rounding%E"></span></p>
 
