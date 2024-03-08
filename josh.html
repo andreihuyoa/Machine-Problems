@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Machine Problem 1</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="content-wrapper">
+            <h2>Taylor Polynomial Calculator for sinh(x)</h2>
+            <div class="form-wrapper">
+                <label for="n">Enter n:</label>
+                <input type="number" id="n" value="5"><br><br>
+                <label for="x">Enter x:</label>
+                <input type="number" id="x" value="1"><br><br>
+                <label for="decimals">Enter number of decimals:</label>
+                <input type="number" id="decimals" value="5"><br><br>
+                <button onclick="calculateTaylor()">Calculate</button><br><br>
+            </div>
+            <div id="result" class="result-wrapper"></div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

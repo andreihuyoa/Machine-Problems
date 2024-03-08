@@ -1,8 +1,9 @@
+
 function compute() {
     //gets the user input
-    const a = parseFloat(document.getElementById('a').value); // should be 0 if maclaurin?
     const n = parseFloat(document.getElementById('n').value);
     const x = parseFloat(document.getElementById('x').value);
+    const d = parseFloat(document.getElementById('d').value);
 }
 
 function computeForDerivative() {

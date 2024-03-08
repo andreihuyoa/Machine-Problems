@@ -24,3 +24,10 @@ body {
     align-items: center;
     text-align: center;
 }
+
+/* hides up & down button inside input box */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

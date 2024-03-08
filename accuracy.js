@@ -25,7 +25,7 @@ document.getElementById('buttonParentsEventListener').addEventListener('click', 
 });
 
 function calculateAccuracyAndPrecision() {
-    //*get value from user input
+    //*gets value from user input
     const userInput = parseFloat(document.getElementById('userInput').value); //dito magiinput user ng custom equation niya then pag click ng compute button, lalabas sa trueValue yung sagot
 
     const trueValue = parseFloat(document.getElementById('trueValue').value); //eto should be from user if pumili siya sa buttons yun yung true value
