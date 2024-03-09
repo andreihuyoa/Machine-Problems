@@ -27,8 +27,8 @@ function calculateTaylor() {
     const trueValue = solveforTrueValue;
     const approxValue = taylorPolynomial.result;
 
-    function truncateToDecimalPlace(approxValue, decimalPlaces) {
-        const factor = 10 ** decimalPlaces;
+    function truncateToDecimalPlace(approxValue, decimals) {
+        const factor = 10 ** decimals;
         return Math.trunc(approxValue * factor) / factor;
     }
     const absoluteErrorChop = trueValue - approxValue;
@@ -38,8 +38,8 @@ function calculateTaylor() {
     result.innerHTML += '<p>Absolute Error: ' + truncateToDecimalPlace(absoluteErrorChop, decimals) + '</p>';
     result.innerHTML += '<p>Percentage Error: ' + truncateToDecimalPlace(percentageErrorChop, decimals) + '</p><br>';
 
-    function roundToDecimalPlace(approxValue, decimalPlaces) {
-        const factor = 10 ** decimalPlaces;
+    function roundToDecimalPlace(approxValue, decimals) {
+        const factor = 10 ** decimals;
         const roundedValue = Math.floor(approxValue * factor);
         const decimalPart = approxValue * factor - Math.floor(approxValue * factor);
 
