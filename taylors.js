@@ -16,11 +16,45 @@ function calculateTaylor() {
     // Calculate Taylor Polynomial
     var taylorPolynomial = taylorSinh(n, x, decimals);
 
-    // Display result
+    // Display taylors result
     result.innerHTML += '<h3>' + (n > 0 ? 'Taylor Polynomial' : 'Maclaurin Polynomial') + ' for sinh(x)</h3><br>';
     result.innerHTML += '<p>For n = ' + n + ', x = ' + x + ', and ' + decimals + ' decimals:</p>';
     result.innerHTML += '<p>' + taylorPolynomial.process + '</p>';
-    result.innerHTML += '<p>Final result: ' + taylorPolynomial.result.toFixed(decimals) + '</p>';
+    result.innerHTML += '<p>Final result: ' + taylorPolynomial.result.toFixed(decimals) + '</p><br>';
+
+    const solveforTrueValue = Math.sinh(x);
+    result.innerHTML += '<p>True Value of F(' + x + ') is: ' + solveforTrueValue + '</p><br>';
+    const trueValue = solveforTrueValue;
+    const approxValue = taylorPolynomial.result;
+
+    function truncateToDecimalPlace(approxValue, decimalPlaces) {
+        const factor = 10 ** decimalPlaces;
+        return Math.trunc(approxValue * factor) / factor;
+    }
+    const absoluteErrorChop = trueValue - approxValue;
+    const percentageErrorChop = (absoluteErrorChop / trueValue) * 100;
+
+    result.innerHTML += '<p>Chopped Result: ' + truncateToDecimalPlace(approxValue, decimals) + '</p>';
+    result.innerHTML += '<p>Absolute Error: ' + truncateToDecimalPlace(absoluteErrorChop, decimals) + '</p>';
+    result.innerHTML += '<p>Percentage Error: ' + truncateToDecimalPlace(percentageErrorChop, decimals) + '</p><br>';
+
+    function roundToDecimalPlace(approxValue, decimalPlaces) {
+        const factor = 10 ** decimalPlaces;
+        const roundedValue = Math.floor(approxValue * factor);
+        const decimalPart = approxValue * factor - Math.floor(approxValue * factor);
+
+        if (decimalPart >= 0.5) {
+            return (roundedValue + 1) / factor;
+        } else {
+            return roundedValue / factor;
+        }
+    }
+    const absoluteErrorRound = trueValue - approxValue;
+    const percentageErrorRound = (absoluteErrorRound / approxValue) * 100;
+
+    result.innerHTML += '<p>Rounded Result: ' + roundToDecimalPlace(approxValue, decimals) + '</p>';
+    result.innerHTML += '<p>Absolute Error: ' + roundToDecimalPlace(absoluteErrorRound, decimals) + '</p>';
+    result.innerHTML += '<p>Percentage Error: ' + roundToDecimalPlace(percentageErrorRound, decimals) + '</p>';
 }
 
 // Function to calculate Taylor Polynomial for sinh(x)
