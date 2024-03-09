@@ -1,3 +1,3 @@
-# mpfuckingONE
+# Machine-Problems
 
  i hate MATH ❤️
