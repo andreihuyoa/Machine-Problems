@@ -1,10 +1,13 @@
 //pre-defined values / constants
 const predefined_val = {
-    epsilon: 2.718281828,
+    epsilon: 2.718281828459045,
     pie: Math.PI,
     goldenRatio: 1.618033988749895,
-    epsilon2: Number.EPSILON, // not sure
-    //add more pre def values here
+    epsilon2: Number.EPSILON,
+    sqrt1over2: 0.7071067811865476,
+    sqrt2: 1.4142135623730951,
+    tau: 6.283185307179586,
+    //we can add more here if we want to
 };
 
 /*
@@ -15,21 +18,15 @@ const predefined_val = {
 //*event listeners in a one function
 const trueValue = document.getElementById('trueValue');
 
-const userInput = document.getElementById('userInput');
-// Adds an event listener sa parent element ng mga buttons then lalagay niya in user input box
 document.getElementById('buttonParentsEventListener').addEventListener('click', function (event) {
     if (event.target.tagName === 'BUTTON') {
         const valueToAppend = predefined_val[event.target.dataset.value];
-        userInput.value += valueToAppend;
+        trueValue.value += valueToAppend;
     }
 });
 
 function calculateAccuracyAndPrecision() {
-    //*gets value from user input
-    const userInput = parseFloat(document.getElementById('userInput').value); //dito magiinput user ng custom equation niya then pag click ng compute button, lalabas sa trueValue yung sagot
-
-    const trueValue = parseFloat(document.getElementById('trueValue').value); //eto should be from user if pumili siya sa buttons yun yung true value
-
+    const trueValue = parseFloat(document.getElementById('trueValue').value);
     const approxValue = parseFloat(document.getElementById('approxValue').value);
     const decimalPlaces = parseInt(document.getElementById('decimalPlaces').value) || 0;
 

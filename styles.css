@@ -1,0 +1,122 @@
+
+    /* helvetica neue
+    font-family: 'Helvetica Neue', sans-serif;
+    */
+    @import url('https://fonts.cdnfonts.com/css/helvetica-neue-5');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.main-container {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.content-wrapper {
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-wrapper {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-wrapper label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-wrapper input[type="number"] {
+    width: calc(100% - 22px); /* Adjusted to account for padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-wrapper input[type="number"]:focus {
+    border-color: #4caf50;
+}
+
+.form-wrapper button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-wrapper button:hover {
+    background-color: #0056b3;
+}
+
+.result-wrapper {
+    margin-top: 20px;
+}
+
+.result-wrapper h2 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/*! Main --  !*/
+
+/* parent grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+}
+
+/*! Accuracy -- Part 1 !*/
+
+.predefined-values {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+    padding-top: 7gpx;
+}
+
+.predefined-values h5 {
+    padding-bottom: 3px;
+}
+
+.predef-table {
+    padding-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 5px;
+}
+
+/*! Taylors -- Part 2 !*/
+
+.title {
+    padding: 1em;
+    text-align: center;
+}
