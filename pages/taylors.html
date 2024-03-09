@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Machine Problem 1</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="title">
+                <h2>Taylor Series</h2>
+                <h2>Sinh(x)</h2>
+            </div>
+            <div>
+                <h5>How to use:</h5>
+                <p>Step 1: Enter your number of iteration</p>
+                <p>Step 2: Enter the x value</p>
+                <p>Step 2: Enter the decimal places you want the answer to have</p>
+                <br>
+            </div>
+            <div class="form-wrapper">
+                <label for="n">Enter n:</label>
+                <input type="number" id="n" value="5"><br><br>
+                <label for="x">Enter x:</label>
+                <input type="number" id="x" value="1"><br><br>
+                <label for="decimals">Enter number of decimals:</label>
+                <input type="number" id="decimals" value="5"><br><br>
+                <button onclick="calculateTaylor()">Solve</button><br><br>
+            </div>
+            <div id="result" class="result-wrapper"></div>
+        </div>
+    </div>
+</body>
+<script src="/taylors.js"></script>
+</html>

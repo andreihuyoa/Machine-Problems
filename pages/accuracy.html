@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/styles.css">
     <title>Machine Problem 1</title>
 </head>
 <body>
@@ -11,37 +11,43 @@
     <div class="main-container">
         <div class="content-wrapper">
             <!-- lagay ng spaces below each -->
-            <h1>Machine Problem 1</h1>
-            <h2>Part 1</h2>
-            <p>Solves for accuracy and precision.</p>
+            <div class="title">
+                <h2>Part 1</h2>
+                <h2>Solves for Accuracy and Precision</h2>
+            </div>
             <br>
             <div class="form-wrapper">
-                <form id="form">
 
-                    <label for="user">Input a custom equation</label>
-                    <input type="text" id="userInput" required>
-                    <br><br>
+                    <div class="instructions">
+                        <h5>How to use:</h5>
+                        <p>Step 1: Select or input your True Value</p>
+                        <p>Step 2: Input your Approximated Value</p>
+                        <p>Step 3: Input your number of decimal places</p>
+                        <br>
+                    </div>
 
                     <label for="trueValue">Your True Value is </label>
-                    <input type="text" name="" id="trueValue" >
+                    <input type="number" name="" id="trueValue" >
                     <br><br>
 
                     <label for="trueValue">Your Approximated Value from your equation is</label>
-                    <input type="text" name="" id="approxValue" >
+                    <input type="number" name="" id="approxValue" >
                     <br><br>
 
                     <label for="x">Input the number of decimal places: </label>
                     <input type="number" id="decimalPlaces" min="0" step="1"
                     oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"><br><br>
-                    <button type="button" id="compute-button">Calculate</button>
-                </form>
+                    <button class="submitButton" type="button" id="compute-button">Solve</button>
 
                 <div class="predefined-values">
                     <h5>Predefined Values</h5>
-                    <div id="buttonParentsEventListener" class="">
+                    <div id="buttonParentsEventListener" class="predef-table">
                         <button class="" id="epsilonButton" data-value="epsilon">ε</button>
-                        <button class="" id="goldenratioButton" data-value="pie">φ</button>
-                        <button class="" id="piButton" data-value="goldenRatio">π</button>
+                        <button class="" id="goldenratioButton" data-value="pie">π</button>
+                        <button class="" id="piButton" data-value="goldenRatio">φ</button>
+                        <button class="" id="tauButton" data-value="tau">Τ</button>
+                        <button class="" id="sqrt1over2Button" data-value="sqrt1over2">SQRT1/2</button>
+                        <button class="" id="sqrt2Button" data-value="sqrt2">SQRT2</button>
                     </div>
                 </div>
             </div>
@@ -63,7 +69,6 @@
         </div>
 
     </div>
-
-    <script src="accuracy.js"></script>
+    <script src="/accuracy.js"></script>
 </body>
 </html>
