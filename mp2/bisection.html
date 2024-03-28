@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Machine Problem 2</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="content-wrapper">
+            <!-- lagay ng spaces below each -->
+            <div class="title">
+                <h2>Part 2</h2>
+                <h2>Solves for Bisection Method</h2>
+            </div>
+            <br>
+            <div class="form-wrapper">
+                    <div class="instructions">
+                        <h5>How to use:</h5>
+                        <p>Step 1: Input your Function</p>
+                        <p>Step 2: Input your a,b,and c</p>
+                        <p>Step 3: Input your limit</p>
+                        <p>Step 4: Solve</p>
+                        <br>
+                    </div>
+
+                    <label for="a">Your function</label>
+                    <input type="text" name="" id="customFunction" >
+                    <br>
+
+                    <label for="a">Your A value: </label>
+                    <input type="number" name="" id="functionA" >
+                    <br>
+
+                    <label for="b">Your B value: </label>
+                    <input type="number" name="" id="functionB" >
+                    <br>
+
+                    <label for="c">Your C Value </label>
+                    <input type="number" id="FunctionC">
+                    <br>
+
+                    <button class="submitButton" type="button" id="compute-button">Solve</button>
+
+            </div>
+        </div>
+    </div>
+    <!-- mathjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.1/math.js" integrity="sha512-B2caA1wJW/b3Jhbhbb9waDjQ7NdG30fkULe9CgCzilQ8CUEdh2NdyGi/GrB+0kQdgfBbUdiLyAP2xdcDzNA6Ow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/mp2/bisection.js"></script>
+</body>
+</html>
