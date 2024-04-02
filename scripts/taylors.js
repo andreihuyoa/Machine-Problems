@@ -1,4 +1,4 @@
-const math = require('mathjs');
+// const math = require('mathjs');
 
 function calculateTaylor() {
     // Extract input values

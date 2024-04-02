@@ -44,7 +44,7 @@ body {
     font-weight: bold;
 }
 
-.form-wrapper input[type="number"] {
+.form-wrapper input {
     width: calc(100% - 22px); /* Adjusted to account for padding */
     padding: 10px;
     border: 1px solid #ccc;
@@ -120,3 +120,6 @@ body {
     padding: 1em;
     text-align: center;
 }
+
+
+/*! Bisection */
