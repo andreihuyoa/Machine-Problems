@@ -44,7 +44,6 @@ body {
     font-weight: bold;
 }
 
-/* input[type="number"] */
 .form-wrapper input {
     width: calc(100% - 22px); /* Adjusted to account for padding */
     padding: 10px;
@@ -92,6 +91,8 @@ body {
     grid-row-gap: 30px;
 }
 
+
+
 /*! Accuracy -- Part 1 !*/
 
 .predefined-values {
@@ -121,3 +122,9 @@ body {
     padding: 1em;
     text-align: center;
 }
+
+
+/*! Bisection */
+
+
+/*! Newton */

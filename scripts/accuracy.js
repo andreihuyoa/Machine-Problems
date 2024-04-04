@@ -10,11 +10,6 @@ const predefined_val = {
     //we can add more here if we want to
 };
 
-/*
-? const squareRoots = bru;
-* wala pa yung ibang irrational numbers like mga sqrt of 2 ganon ganon
-*/
-
 //*event listeners in a one function
 const trueValue = document.getElementById('trueValue');
 
