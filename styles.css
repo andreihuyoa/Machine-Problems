@@ -44,6 +44,10 @@ body {
     font-weight: bold;
 }
 
+<<<<<<< HEAD
+=======
+/* input[type="number"] */
+>>>>>>> main
 .form-wrapper input {
     width: calc(100% - 22px); /* Adjusted to account for padding */
     padding: 10px;
