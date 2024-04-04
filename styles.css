@@ -91,6 +91,8 @@ body {
     grid-row-gap: 30px;
 }
 
+
+
 /*! Accuracy -- Part 1 !*/
 
 .predefined-values {
@@ -123,3 +125,6 @@ body {
 
 
 /*! Bisection */
+
+
+/*! Newton */
