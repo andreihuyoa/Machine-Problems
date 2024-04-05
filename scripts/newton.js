@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 function newtonRaphsonMethod() {
     let functionInput = document.getElementById('functionByUser').value;
     let initialGuess = parseFloat(document.getElementById('initialGuess').value);
@@ -42,4 +40,3 @@ function newtonRaphsonMethod() {
         document.getElementById('iterationTable').appendChild(newRow);
     }
 }
->>>>>>> Stashed changes
