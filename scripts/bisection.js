@@ -12,13 +12,6 @@ function bisectionMethod() {
 
     let error = math.abs(b - a);
 
-    //checks if the iteration input is empty
-    // if (numIteration.trim() === '') {
-    //     numIteration = Infinity; // Set to a large value
-    // } else {
-    //     numIteration = parseInt(numIteration);
-    // }
-
     for (let i = 0; i < numIteration || error > numLimit; i++) {
         let c = (a + b) / 2;
         let fa = f(a);
