@@ -1,5 +1,3 @@
-// const math = require('mathjs');
-
 function calculateTaylor() {
     // Extract input values
     var n = parseInt(document.getElementById('n').value);

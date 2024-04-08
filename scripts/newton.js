@@ -3,10 +3,16 @@ function newtonRaphsonMethod() {
     let initialGuess = parseFloat(document.getElementById('initialGuess').value);
     let numIteration = parseInt(document.getElementById('numIteration').value);
     let numLimit = parseFloat(document.getElementById('numLimit').value);
-    let precision = parseInt(document.getElementById('precision').value);
+    let precision = parseInt(precisionInput.value);
+
+    //handles precision input
+    if (isNaN(precision) || precision <= 0 || precision > 64) {
+        precision = 20;
+        precisionInput.value = precision;
+    }
 
     // Clears the table
-    document.getElementById('iterationTable').innerHTML = "<tr><th>n</th><th>x</th><th>f(x)</th><th>f'(x)</th><th>Error (e)</th></tr>";
+    document.getElementById('iterationTable').innerHTML = "<tr><th>n</th><th>x</th><th>f(x)</th><th>f'(x)</th><th>Error</th></tr>";
 
     //gets the function from user and substitutes x
     let f = (x) => math.evaluate(functionInput, { x: x });
@@ -33,7 +39,7 @@ function newtonRaphsonMethod() {
         let formattedFxPrime = math.format(fxPrime, { precision: precision });
         let formattedError = math.format(error, { precision: precision });
 
-        document.getElementById('derivativeFunction').innerText = 'Derivative Function ' + fPrime;
+        document.getElementById('derivativeFunction').innerText = 'Derived Function ' + fPrime;
 
         let newRow = document.createElement('tr');
         newRow.innerHTML = `<td>${i + 1}</td><td>${formattedX}</td><td>${formattedFx}</td><td>${formattedFxPrime}</td><td>${formattedError}</td>`;
