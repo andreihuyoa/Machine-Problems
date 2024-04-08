@@ -16,18 +16,17 @@
                 <br>
                 <h2>Solves for Bisection Method</h2>
             </div>
-            <br>
-            <div class="form-wrapper">
-                    <div class="instructions">
-                        <h5>How to use:</h5>
-                        <p>Step 1: Input your Function</p>
-                        <p>Step 2: Input your lower and upper limit</p>
-                        <p>Step 3: Input your n or number of iterations</p>
-                        <p>Step 4: Input your ε or limit</p>
-                        <p>Step 5: Solve</p>
-                        <br>
-                    </div>
+            <div class="instructions">
+                <h5>How to use:</h5>
+                <p>Step 1: Input your Function</p>
+                <p>Step 2: Input your lower and upper limit</p>
+                <p>Step 3: Input your n or number of iterations</p>
+                <p>Step 4: Input your ε or limit</p>
+                <p>Step 5: Input your precision or number of decimal places</p>
+                <p>Step 6: Solve</p>
+            </div>
 
+            <div class="form-wrapper">
                     <label for="functionByUser">Input your F(x)</label>
                     <input
                     value="x^3-3x+1"
@@ -49,14 +48,14 @@
                     placeholder="1">
                     <br><br>
 
-                    <label for="numIteration">Input your number of iterations</label>
+                    <label for="numIteration">Iteration</label>
                     <input
                     type="number"
                     id="numIteration"
                     placeholder="3" >
                     <br><br>
 
-                    <label for="numLimit">Input your limit</label>
+                    <label for="numLimit">Limit</label>
                     <input
                     placeholder="0.03"
                     type="number"
@@ -64,23 +63,34 @@
                     <!-- placeholder="leave empty if u choose iteration.. e.g. 0.03" -->
                     <br><br>
 
-                    <button onclick="bisectionMethod()">Solve</button><br><br>
+                    <label for="precisionInput">Precision</label>
+                    <input
+                    placeholder="max is 64"
+                    max="64"
+                    type="number"
+                    id="precisionInput">
+                    <br><br>
+
+                    <button
+                    class="submitButton"
+                    onclick="bisectionMethod()">Solve</button><br>
             </div>
 
             <div class="result-wrapper">
                 <div class="table-container">
-                    <table id="iterationTable">
+                    <table class="" id="iterationTable">
                         <tr>
-                            <th>n</th>
+                            <th>N</th>
                             <th>a</th>
                             <th>b</th>
                             <th>f(a)</th>
                             <th>f(b)</th>
                             <th>c</th>
                             <th>f(c)</th>
-                            <th>Error (e)</th>
+                            <th>Error</th>
                         </tr>
                     </table>
+                    <br>
                 </div>
             </div>
 
