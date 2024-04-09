@@ -11,8 +11,8 @@ function newtonRaphsonMethod() {
         precisionInput.value = precision;
     }
 
-    // Clears the table
-    document.getElementById('iterationTable').innerHTML = "<tr><th>n</th><th>x</th><th>f(x)</th><th>f'(x)</th><th>Error</th></tr>";
+    //Clears the table
+    clearTable();
 
     //gets the function from user and substitutes x
     let f = (x) => math.evaluate(functionInput, { x: x });
@@ -45,4 +45,9 @@ function newtonRaphsonMethod() {
         newRow.innerHTML = `<td>${i + 1}</td><td>${formattedX}</td><td>${formattedFx}</td><td>${formattedFxPrime}</td><td>${formattedError}</td>`;
         document.getElementById('iterationTable').appendChild(newRow);
     }
+}
+
+function clearTable() {
+    // Clears the table
+    document.getElementById('iterationTable').innerHTML = "<tr><th>n</th><th>x</th><th>f(x)</th><th>f'(x)</th><th>Error</th></tr>";
 }

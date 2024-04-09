@@ -3,28 +3,25 @@
     */
 @import url('https://fonts.cdnfonts.com/css/helvetica-neue-5');
 
-/** GLOBALS */
-
-* {
+body {
     padding: 0;
     margin: 0;
-    font-family: 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
-}
-
-body {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 .main-container {
-    max-width: 90%;
+    max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: combinedAnimation 1s ease;
 }
 
 .title {
@@ -42,19 +39,17 @@ body {
     justify-content: space-between;
 }
 
-.grid-container .grid-1,
-.grid-container .grid-2 {
+.grid-container .grid {
     text-align: center;
     flex: 1;
-    padding: 20px;
+    padding: 10px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
 }
 
-.grid-container .grid-1:hover,
-.grid-container .grid-2:hover {
+.grid-container .grid:hover {
     transform: translateY(-5px);
 }
 
@@ -73,7 +68,7 @@ body {
     display: block;
     color: #007bff;
     text-decoration: none;
-    margin-top: 10px;
+    margin: 10px 10px;
     border: 1px solid #007bff;
     border-radius: 5px;
     padding: 8px 12px;
@@ -86,12 +81,8 @@ body {
     text-decoration: none;
 }
 
-.center {
-    text-align: center;
-}
-
 .grid-container .grid-1 {
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 /*! Accuracy -- Part 1 !*/
@@ -117,31 +108,18 @@ body {
     grid-column-gap: 5px;
 }
 
-/*! Taylors -- Part 2 !*/
-
 .title {
-    padding: 1em;
-    text-align: center;
+    padding: 10px;
 }
 
-/*! Bisection & NEWTON */
-.container {
-    max-width: 2000px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
+@keyframes combinedAnimation {
     from {
         opacity: 0;
+        transform: translateY(-50px);
     }
-
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -152,19 +130,7 @@ body {
 .heading {
     text-align: center;
     margin-bottom: 20px;
-    animation: slideInDown 1s ease;
-}
-
-@keyframes slideInDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    animation: combinedAnimation 1s ease;
 }
 
 .heading h2 {
@@ -173,7 +139,7 @@ body {
     margin-bottom: 15px;
 }
 
-.form-wrapper {
+.form {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -186,7 +152,6 @@ body {
         transform: translateX(-50px);
         opacity: 0;
     }
-
     to {
         transform: translateX(0);
         opacity: 1;
@@ -212,26 +177,11 @@ body {
     color: #333;
 }
 
-.form-warpper input:focus {
+.form-wrapper input:focus {
     border-color: #0056b3;
 }
 
-.form-wrapper button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 18px;
-}
-
-.form button:hover {
-    background-color: #0056b3;
-}
-
-.result {
+.result-wrapper {
     margin-top: 20px;
     animation: slideInRight 1s ease;
 }
@@ -241,7 +191,6 @@ body {
         transform: translateX(50px);
         opacity: 0;
     }
-
     to {
         transform: translateX(0);
         opacity: 1;
@@ -250,12 +199,13 @@ body {
 
 .table-container {
     overflow-x: auto;
+    padding: 10px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     margin-top: 20px;
 }
@@ -283,7 +233,6 @@ table th {
         transform: translateY(50px);
         opacity: 0;
     }
-
     to {
         transform: translateY(0);
         opacity: 1;
@@ -306,7 +255,8 @@ label {
     color: #333;
 }
 
-input {
+input[type='number'],
+input[type='text'] {
     padding: 8px;
     font-size: 14px;
     border: 1px solid #ccc;

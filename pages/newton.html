@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>Machine Problem 2</title>
 </head>
 <body>
@@ -13,46 +13,44 @@
             <!-- lagay ng spaces below each -->
             <div class="title">
                 <h2>Part 2</h2>
-                <br>
                 <h2>Solves for Newton-Rhapson Method</h2>
             </div>
             <div class="instructions">
                 <h5>How to use:</h5>
                 <p>Step 1: Input your Function</p>
-                <p>Step 2: x_0 or initial guess</p>
-                <p>Step 3: Input your number of iterations or limit</p>
+                <p>Step 2: Input x_0 or initial guess</p>
+                <p>Step 3: Input number of iterations or limit</p>
                 <p>Step 4: Input a number of values you want to see</p>
                 <p>Step 5 : Solve</p>
-                <br>
             </div>
             <div class="form-wrapper">
                     <label for="functionByUser">Input your F(x)</label>
                     <input
-                    value="x^3 - x - 1"
+                    value="x^3-2x^2-5"
                     type="text"
                     id="functionByUser">
-                    <br><br>
+                    <br>
 
                     <label for="initialGuess">Initial Guess</label>
                     <input
                     type="number"
                     id="initialGuess"
                     placeholder="0">
-                    <br><br>
+                    <br>
 
                     <label for="numIteration">Iteration</label>
                     <input
                     type="number"
                     id="numIteration"
                     placeholder="3" >
-                    <br><br>
+                    <br>
 
                     <label for="numLimit">Limit</label>
                     <input
                     placeholder="0.03"
                     type="number"
                     id="numLimit">
-                    <br><br>
+                    <br>
 
                     <label for="precisionInput">Precision</label>
                     <input
@@ -60,15 +58,12 @@
                     max="64"
                     type="number"
                     id="precisionInput">
-                    <br><br>
 
-                    <button
-                    class="submitButton"
-                    onclick="newtonRaphsonMethod()">Solve</button><br><br>
+                    <button onclick="newtonRaphsonMethod()">Solve</button><br>
             </div>
 
             <div class="result-wrapper">
-                <div id="derivativeFunction" class="derivativeFunc">
+                <div id="derivativeFunction" class="derivativeFunction">
                 </div>
                 <div class="table-container">
                     <table id="iterationTable">
