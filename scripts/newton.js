@@ -3,12 +3,12 @@ function newtonRaphsonMethod() {
     let initialGuess = parseFloat(document.getElementById('initialGuess').value);
     let numIteration = parseInt(document.getElementById('numIteration').value);
     let numLimit = parseFloat(document.getElementById('numLimit').value);
-    let precision = parseInt(precisionInput.value);
+    let precision = parseInt(document.getElementById('precisionInput').value);
 
     //handles precision input
     if (isNaN(precision) || precision <= 0 || precision > 64) {
         precision = 20;
-        precisionInput.value = precision;
+        document.getElementById('precisionInput').value = precision;
     }
 
     //Clears the table
@@ -20,14 +20,15 @@ function newtonRaphsonMethod() {
     /*
      *doesnt remove the constants for example: 2x^3-2x-5 ang output niya 6*x^2-2 but it should be 6*x^2 pero it still performs the same
      */
-    let fPrime = math.derivative(functionInput, 'x');
+    //evaluates f(x)
+    let fPrime = (x) => math.derivative(functionInput, 'x').evaluate({ x: x });
 
     let x = initialGuess;
     let error = math.bignumber(Infinity);
 
     for (let i = 0; i < numIteration || error > numLimit; i++) {
         let fx = math.bignumber(f(x));
-        let fxPrime = fPrime.evaluate({ x: x });
+        let fxPrime = math.bignumber(fPrime(x));
         let nextX = math.subtract(x, math.divide(fx, fxPrime));
 
         error = math.abs(math.subtract(nextX, x));
@@ -39,7 +40,7 @@ function newtonRaphsonMethod() {
         let formattedFxPrime = math.format(fxPrime, { precision: precision });
         let formattedError = math.format(error, { precision: precision });
 
-        document.getElementById('derivativeFunction').innerText = 'Derived Function ' + fPrime;
+        document.getElementById('derivativeFunction').innerText = 'Derived Function ' + math.derivative(functionInput, 'x');
 
         let newRow = document.createElement('tr');
         newRow.innerHTML = `<td>${i + 1}</td><td>${formattedX}</td><td>${formattedFx}</td><td>${formattedFxPrime}</td><td>${formattedError}</td>`;
