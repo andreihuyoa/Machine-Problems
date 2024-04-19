@@ -7,7 +7,7 @@ function newtonRaphsonMethod() {
 
     //handles precision input
     if (isNaN(precision) || precision <= 0 || precision > 64) {
-        precision = 20;
+        precision = 20; //default is 20
         document.getElementById('precisionInput').value = precision;
     }
 
@@ -20,7 +20,7 @@ function newtonRaphsonMethod() {
     /*
      *doesnt remove the constants for example: 2x^3-2x-5 ang output niya 6*x^2-2 but it should be 6*x^2 pero it still performs the same
      */
-    //evaluates f(x)
+    //evaluates f(x) / derivative
     let fPrime = (x) => math.derivative(functionInput, 'x').evaluate({ x: x });
 
     let x = initialGuess;
@@ -43,7 +43,13 @@ function newtonRaphsonMethod() {
         document.getElementById('derivativeFunction').innerText = 'Derived Function ' + math.derivative(functionInput, 'x');
 
         let newRow = document.createElement('tr');
-        newRow.innerHTML = `<td>${i + 1}</td><td>${formattedX}</td><td>${formattedFx}</td><td>${formattedFxPrime}</td><td>${formattedError}</td>`;
+        newRow.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${formattedX}</td>
+        <td>${formattedFx}</td>
+        <td>${formattedFxPrime}</td>
+        <td>${formattedError}</td>
+        `;
         document.getElementById('iterationTable').appendChild(newRow);
     }
 }
