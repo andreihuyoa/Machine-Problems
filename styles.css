@@ -81,7 +81,7 @@ body {
     text-decoration: none;
 }
 
-.grid-container .grid-1 {
+.grid-container .grid-1,.grid-2 {
     margin-right: 10px;
 }
 
