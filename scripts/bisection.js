@@ -20,7 +20,7 @@ function bisectionMethod() {
 
     let error = math.abs(b - a);
 
-    for (let i = 0; i < numIteration || error > numLimit; i++) {
+    for (let i = 1; i < numIteration || error > numLimit; i++) {
         let c = (a + b) / 2;
         let fa = f(a);
         let fb = f(b);
@@ -37,7 +37,7 @@ function bisectionMethod() {
 
         let newRow = document.createElement('tr');
         newRow.innerHTML = `
-            <td>${i + 1}</td>
+            <td>${i}</td>
             <td>${formattedA}</td>
             <td>${formattedB}</td>
             <td>${formattedFa}</td>
