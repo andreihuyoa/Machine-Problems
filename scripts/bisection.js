@@ -1,20 +1,13 @@
 function bisectionMethod() {
     //caching the elements
     let functionInput = document.getElementById('functionByUser').value;
-    let lowerLimitAElement = document.getElementById('lowerLimitA');
-    let upperLimitBElement = document.getElementById('upperLimitB');
-    let numIterationElement = document.getElementById('numIteration');
-    let numLimitElement = document.getElementById('numLimit');
-    let precisionInputElement = document.getElementById('precisionInput');
+    let a = document.getElementById('lowerLimitA').value;
+    let b = document.getElementById('upperLimitB').value;
+    let numIteration = document.getElementById('numIteration').value;
+    let numLimit = document.getElementById('numLimit').value;
+    let precisionInput = document.getElementById('precisionInput').value;
 
-    //gets the value
-    let a = parseFloat(lowerLimitAElement.value);
-    let b = parseFloat(upperLimitBElement.value);
-    let numIteration = parseFloat(numIterationElement.value);
-    let numLimit = parseFloat(numLimitElement.value);
-
-    let precision = parseInt(precisionInputElement.value);
-    //handles precision input
+    // Handles precision input
     if (isNaN(precision) || precision <= 0 || precision > 64) {
         precision = 20; // default is 20
         precisionInput.value = precision;
@@ -31,20 +24,17 @@ function bisectionMethod() {
 
     for (let i = 0; i < numIteration || error > numLimit; i++) {
         let c = (a + b) / 2;
-        // let fa = f(a);
-        // let fb = f(b);
-        // let fc = f(c);
         let fa = compiledFunction.evaluate({ x: a });
         let fb = compiledFunction.evaluate({ x: b });
         let fc = compiledFunction.evaluate({ x: c });
 
-        let formattedA = formatNumber(a, precision);
-        let formattedB = formatNumber(b, precision);
-        let formattedFa = formatNumber(fa, precision);
-        let formattedFb = formatNumber(fb, precision);
-        let formattedC = formatNumber(c, precision);
-        let formattedFc = formatNumber(fc, precision);
-        let formattedError = formatNumber(error, precision);
+        let formattedA = formatNumber(a, { precision: precision });
+        let formattedB = formatNumber(b, { precision: precision });
+        let formattedFa = formatNumber(fa, { precision: precision });
+        let formattedFb = formatNumber(fb, { precision: precision });
+        let formattedC = formatNumber(c, { precision: precision });
+        let formattedFc = formatNumber(fc, { precision: precision });
+        let formattedError = formatNumber(error, { precision: precision });
 
         let newRow = document.createElement('tr');
         newRow.innerHTML = `

@@ -11,15 +11,11 @@ function newtonRaphsonMethod() {
         precisionInput.value = precision;
     }
 
-    // Clears the table
     clearTable();
 
     // Gets the function from user and substitutes x
     let f = (x) => math.evaluate(functionInput, { x: x });
 
-    /*
-     * Doesnt remove the constants for example: 2x^3-2x-5 ang output niya 6*x^2-2 but it should be 6*x^2 pero it still performs the same
-     */
     let fPrime = math.derivative(functionInput, 'x');
 
     let x = initialGuess;
