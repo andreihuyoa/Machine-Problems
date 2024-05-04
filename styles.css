@@ -24,6 +24,14 @@ body {
     animation: combinedAnimation 1s ease;
 }
 
+/* Mobile */
+@media screen and (max-width: 430px) {
+    .main-container {
+        width: 300px;
+        margin: 20px auto;
+    }
+}
+
 .title {
     text-align: center;
     margin-bottom: 20px;
@@ -81,7 +89,8 @@ body {
     text-decoration: none;
 }
 
-.grid-container .grid-1,.grid-2 {
+.grid-container .grid-1,
+.grid-2 {
     margin-right: 10px;
 }
 

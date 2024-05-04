@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        add this intead yung sa taas for ios, havent tried
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, user-scalable=0" /> -->
     <link rel="stylesheet" href="/styles.css">
     <title>Machine Problem 3</title>
 </head>
@@ -15,24 +18,26 @@
             </div>
             <div class="instructions">
                 <h5>How to use:</h5>
-                <p>Step 1: Enter your number of iteration</p>
-                <p>Step 2: Enter the x value</p>
-                <p>Step 2: Enter the decimal places you want the answer to have</p>
+                <!--
+                    display the array from pre-defined values here
+                -->
+                <p>Show the array here later</p>
+                <p>...</p>
+
             </div>
             <div class="form-wrapper">
-                <label for="xValues">Enter x values</label>
-                <input type="text" id="xValues"><br><br>
-                <label for="yValues">Enter y values</label>
-                <input type="text" id="yValues"><br><br>
                 <label for="decimals">Enter the x value to interpolate</label>
                 <input type="text" id="x"><br><br>
                 <button onclick="calculateInterpolation()">Solve</button><br><br>
             </div>
-            <div id="result" class="result-wrapper"></div>
+            <div id="result" class="result-wrapper">
+
+            </div>
         </div>
     </div>
 </body>
     <!-- library comes first before the js file location -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.1/math.js" integrity="sha512-B2caA1wJW/b3Jhbhbb9waDjQ7NdG30fkULe9CgCzilQ8CUEdh2NdyGi/GrB+0kQdgfBbUdiLyAP2xdcDzNA6Ow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script src="/scripts/lagrange_predef.js"></script>
 </html>

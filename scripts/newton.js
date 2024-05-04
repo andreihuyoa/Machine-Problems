@@ -3,32 +3,27 @@ function newtonRaphsonMethod() {
     let initialGuess = parseFloat(document.getElementById('initialGuess').value);
     let numIteration = parseInt(document.getElementById('numIteration').value);
     let numLimit = parseFloat(document.getElementById('numLimit').value);
-    let precision = parseInt(document.getElementById('precisionInput').value);
+    let precision = parseInt(precisionInput.value);
 
     // Handles precision input
     if (isNaN(precision) || precision <= 0 || precision > 64) {
-        precision = 20; //default is 20
-        document.getElementById('precisionInput').value = precision;
+        precision = 20;
+        precisionInput.value = precision;
     }
 
-    // Clears the table
     clearTable();
 
     // Gets the function from user and substitutes x
     let f = (x) => math.evaluate(functionInput, { x: x });
 
-    /*
-     * Doesnt remove the constants for example: 2x^3-2x-5 ang output niya 6*x^2-2 but it should be 6*x^2 pero it still performs the same
-     */
-    //evaluates f(x) / derivative
-    let fPrime = (x) => math.derivative(functionInput, 'x').evaluate({ x: x });
+    let fPrime = math.derivative(functionInput, 'x');
 
     let x = initialGuess;
     let error = math.bignumber(Infinity);
 
     for (let i = 1; i < numIteration || error > numLimit; i++) {
         let fx = math.bignumber(f(x));
-        let fxPrime = math.bignumber(fPrime(x));
+        let fxPrime = fPrime.evaluate({ x: x });
         let nextX = math.subtract(x, math.divide(fx, fxPrime));
 
         error = math.abs(math.subtract(nextX, x));
