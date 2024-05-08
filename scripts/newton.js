@@ -21,7 +21,7 @@ function newtonRaphsonMethod() {
     let x = initialGuess;
     let error = math.bignumber(Infinity);
 
-    for (let i = 1; i < numIteration || error > numLimit; i++) {
+    for (let i = 0; i < numIteration || error > numLimit; i++) {
         let fx = math.bignumber(f(x));
         let fxPrime = fPrime.evaluate({ x: x });
         let nextX = math.subtract(x, math.divide(fx, fxPrime));
@@ -39,7 +39,14 @@ function newtonRaphsonMethod() {
         let nextXValue = math.format(nextX, { precision: precision });
 
         let newRow = document.createElement('tr');
-        newRow.innerHTML = `<td>${i}</td><td>${formattedX}</td><td>${formattedFx}</td><td>${formattedFxPrime}</td><td>${nextXValue}</td><td>${formattedError}</td>`;
+        newRow.innerHTML = `
+        <td>${i}</td>
+        <td>${formattedX}</td>
+        <td>${formattedFx}</td>
+        <td>${formattedFxPrime}</td>
+        <td>${nextXValue}</td>
+        <td>${formattedError}</td>
+        `;
         document.getElementById('iterationTable').appendChild(newRow);
     }
 }
