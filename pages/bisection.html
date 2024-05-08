@@ -61,12 +61,13 @@
 
                     <label for="precisionInput">Precision</label>
                     <input
-                    placeholder="max is 64"
+                    placeholder="max is 64, default is 20"
                     max="64"
                     type="number"
                     id="precisionInput">
                     <br><br>
-                    <button class="" onclick="bisectionMethod()">Solve</button><br><br>
+                    <button class="" onclick="bisectionMethod()">Solve</button>
+                    <br>
             </div>
 
             <div class="result-wrapper">
@@ -76,11 +77,11 @@
                             <th>n</th>
                             <th>a</th>
                             <th>b</th>
-                            <th>f(a)</th>
-                            <th>f(b)</th>
+                            <th>&#402;(a)</th>
+                            <th>&#402;(b)</th>
                             <th>c</th>
-                            <th>f(c)</th>
-                            <th>Error</th>
+                            <th>&#402;(c)</th>
+                            <th>&Epsilon;</th>
                         </tr>
                     </table>
                 </div>

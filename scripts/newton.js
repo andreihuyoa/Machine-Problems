@@ -21,7 +21,7 @@ function newtonRaphsonMethod() {
     let x = initialGuess;
     let error = math.bignumber(Infinity);
 
-    for (let i = 1; i < numIteration || error > numLimit; i++) {
+    for (let i = 0; i < numIteration || error > numLimit; i++) {
         let fx = math.bignumber(f(x));
         let fxPrime = fPrime.evaluate({ x: x });
         let nextX = math.subtract(x, math.divide(fx, fxPrime));
@@ -39,12 +39,19 @@ function newtonRaphsonMethod() {
         let nextXValue = math.format(nextX, { precision: precision });
 
         let newRow = document.createElement('tr');
-        newRow.innerHTML = `<td>${i}</td><td>${formattedX}</td><td>${formattedFx}</td><td>${formattedFxPrime}</td><td>${nextXValue}</td><td>${formattedError}</td>`;
+        newRow.innerHTML = `
+        <td>${i}</td>
+        <td>${formattedX}</td>
+        <td>${formattedFx}</td>
+        <td>${formattedFxPrime}</td>
+        <td>${nextXValue}</td>
+        <td>${formattedError}</td>
+        `;
         document.getElementById('iterationTable').appendChild(newRow);
     }
 }
 
 function clearTable() {
     // Clears the table
-    document.getElementById('iterationTable').innerHTML = "<tr><th>n</th><th>x</th><th>f(x)</th><th>f'(x)</th><th>x_i+1</th><th>Error</th></tr>";
+    document.getElementById('iterationTable').innerHTML = "<tr><th>n</th><th>x</th><th>&#402;(x)</th><th>&#402;'(x)</th><th>x<sub>i+1</sub></th><th>&Epsilon;</th></tr>";
 }
