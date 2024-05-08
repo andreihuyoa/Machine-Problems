@@ -1,11 +1,11 @@
-function calculateInterpolation() {
-    var xValuesInput = document.getElementById('xValues').value;
-    var yValuesInput = document.getElementById('yValues').value;
-    var xValue = parseFloat(document.getElementById('x').value);
+function calculateLagrange() {
+    let xValuesInput = document.getElementById('xValues').value;
+    let yValuesInput = document.getElementById('yValues').value;
+    let x = parseFloat(document.getElementById('x').value);
 
     // Convert comma-separated string inputs to arrays
-    var xValues = xValuesInput.split(',').map(parseFloat);
-    var yValues = yValuesInput.split(',').map(parseFloat);
+    let xValues = xValuesInput.split(',').map(parseFloat);
+    let yValues = yValuesInput.split(',').map(parseFloat);
 
     // Check if the number of x values matches the number of y values
     if (xValues.length !== yValues.length) {
@@ -14,21 +14,52 @@ function calculateInterpolation() {
     }
 
     // Calculate the Lagrange interpolating polynomial
-    var result = lagrangeInterpolation(xValues, yValues, xValue);
+    let interpolationResult = lagrangeInterpolation(xValues, yValues, x);
 
-    document.getElementById('result').innerText = 'Interpolated value at x = ' + xValue + ' is ' + result;
+    // Display the coefficients and the interpolated value
+    document.getElementById('result').innerText =
+        'Coefficients of Lagrange polynomial: ' + interpolationResult.coefficients.join(', ') + '\nInterpolated value at x = ' + x + ' is ' + interpolationResult.result;
+
+    // Display the solution steps
+    displaySolution(xValues, yValues, x);
 }
 
 function lagrangeInterpolation(xValues, yValues, x) {
-    var result = 0;
-    for (var i = 0; i < xValues.length; i++) {
-        var term = yValues[i];
-        for (var j = 0; j < xValues.length; j++) {
+    let coefficients = [];
+    let result = 0;
+    for (let i = 0; i < xValues.length; i++) {
+        let numerator = [];
+        let denominator = 1;
+        for (let j = 0; j < xValues.length; j++) {
             if (j !== i) {
-                term *= (x - xValues[j]) / (xValues[i] - xValues[j]);
+                numerator.push(`(x - ${xValues[j]})`);
+                denominator *= xValues[i] - xValues[j];
             }
         }
+        // Pass the value of x directly to the math.evaluate function
+        let term = (math.evaluate(yValues[i].toString()) * math.evaluate(numerator.join(' / '), { x: x })) / denominator;
+        coefficients.push(term);
         result += term;
     }
-    return result;
+    return { coefficients: coefficients, result: result };
+}
+
+function displaySolution(xValues, yValues, x) {
+    let solutionHTML = '<h3>Solution Steps:</h3>';
+    for (let i = 0; i < xValues.length; i++) {
+        let term = yValues[i];
+        let numeratorHTML = '';
+        let denominator = 1;
+        for (let j = 0; j < xValues.length; j++) {
+            if (j !== i) {
+                numeratorHTML += `(x - ${xValues[j]})`;
+                if (j !== xValues.length - 1) {
+                    numeratorHTML += ' * ';
+                }
+                denominator *= xValues[i] - xValues[j];
+            }
+        }
+        solutionHTML += `<p>Term ${i + 1}: ${term} * (${numeratorHTML}) / ${denominator}</p>`;
+    }
+    document.getElementById('solution').innerHTML = solutionHTML;
 }

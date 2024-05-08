@@ -25,10 +25,17 @@
                 <p>...</p>
 
             </div>
+            <div class="displayArray">
+                <h5>Array</h5>
+                <p>Pre-defined x values</p>
+                <p>50.6369, 51.0066, 50.8553, 50.9594, 50.5704, 50.3345, 49.8245, 49.181, 48.604, 48.4597, 48.5847, 48.1227</p>
+                <p>Pre-defined y values</p>
+                <p>55.6758, 54.1136, 54.8636, 54.2924, 55.5466, 56.0832, 55.2762, 54.9005, 56.793, 56.665, 56.6722, 55.3495</p>
+            </div>
             <div class="form-wrapper">
                 <label for="decimals">Enter the x value to interpolate</label>
-                <input type="text" id="x"><br><br>
-                <button onclick="calculateInterpolation()">Solve</button><br><br>
+                <input type="number" id="x"><br><br>
+                <button onclick="calculateLagrange()">Solve</button><br><br>
             </div>
             <div id="result" class="result-wrapper">
 
