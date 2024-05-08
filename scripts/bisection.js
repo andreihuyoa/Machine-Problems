@@ -65,5 +65,5 @@ function formatNumber(number, precision) {
 }
 
 function clearTable() {
-    document.getElementById('iterationTable').innerHTML = '<tr><th>n</th><th>a</th><th>b</th><th>f(a)</th><th>f(b)</th><th>c</th><th>f(c)</th><th>Error</th></tr>';
+    document.getElementById('iterationTable').innerHTML = '<tr><th>n</th><th>a</th><th>b</th><th>&#402;(a)</th><th>&#402;(b)</th><th>c</th><th>&#402;(c)</th><th>&Epsilon;</th></tr>';
 }

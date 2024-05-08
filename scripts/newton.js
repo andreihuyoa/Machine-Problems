@@ -46,5 +46,5 @@ function newtonRaphsonMethod() {
 
 function clearTable() {
     // Clears the table
-    document.getElementById('iterationTable').innerHTML = "<tr><th>n</th><th>x</th><th>f(x)</th><th>f'(x)</th><th>x_i+1</th><th>Error</th></tr>";
+    document.getElementById('iterationTable').innerHTML = "<tr><th>n</th><th>x</th><th>&#402;(x)</th><th>&#402;'(x)</th><th>x<sub>i+1</sub></th><th>&Epsilon;</th></tr>";
 }
