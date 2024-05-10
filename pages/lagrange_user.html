@@ -24,11 +24,12 @@
                 <input type="text" id="xValues"><br><br>
                 <label for="yValues">Enter y values</label>
                 <input type="text" id="yValues"><br><br>
-                <label for="decimals">Enter the x value to interpolate</label>
-                <input type="text" id="x"><br><br>
-                <button onclick="calculateInterpolation()">Solve</button><br><br>
+                <label for="x">Enter the x value to interpolate</label>
+                <input type="number" id="x"><br><br>
+                <button onclick="calculateLagrange()">Solve</button><br><br>
             </div>
             <div id="result" class="result-wrapper"></div>
+            <div id="solution" class="solution-wrapper"></div>
         </div>
     </div>
 </body>
