@@ -6,17 +6,22 @@ let yValues = [55.6758, 54.1136, 54.8636, 54.2924, 55.5466, 56.0832, 55.2762, 54
 // Function to calculate Lagrange interpolating polynomial
 function calculateLagrange() {
     let x = parseFloat(document.getElementById('x').value);
+    if (isNaN(x)) {
+        document.getElementById('result').innerHTML = 'Please enter a valid number for x';
+        return;
+    }
+
     let result = 0;
     for (let i = 0; i < xValues.length; i++) {
         let term = yValues[i];
         for (let j = 0; j < xValues.length; j++) {
             if (j !== i) {
-                term *= (x - xValues[j]) / (xValues[i] - xValues[j]);
+                term = math.multiply(term, math.divide(math.subtract(x, xValues[j]), math.subtract(xValues[i], xValues[j])));
             }
         }
-        result += term;
+        result = math.add(result, term);
     }
+
     // Display the result on the webpage
     document.getElementById('result').innerHTML = 'Interpolated value at x = ' + x + ' is ' + result;
 }
-

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Machine Problem 4</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="content-wrapper">
+            <div class="title">
+                <h2>Trapezoidal</h2>
+                <h2>Sin(e^x)</h2>
+            </div>
+            <div class="instructions">
+                <h5>How to use:</h5>
+                <p>Step 1: Enter your f(x)</p>
+                <p>Step 2: Enter a and b (a has to be lower than b)</p>
+                <p>Step 3: Enter your n</p>
+            </div>
+            <div class="form-wrapper">
+                <label for="n">Enter f(x):</label>
+                <input type="text" id="functionByUser" value="5"><br><br>
+                <label for="x">Enter x:</label>
+                <input type="number" id="x" value="1"><br><br>
+                <label for="decimals">Enter number of decimals:</label>
+                <input type="number" id="decimals" value="5"><br><br>
+                <button onclick="calculateTaylor()">Solve</button><br><br>
+            </div>
+            <div id="result" class="result-wrapper"></div>
+        </div>
+    </div>
+</body>
+<script src="/scripts/taylors.js"></script>
+</html>

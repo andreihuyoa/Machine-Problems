@@ -13,35 +13,34 @@ function calculateLagrange() {
         return;
     }
 
+    // Check if input is valid
+    if (isNaN(x)) {
+        document.getElementById('result').innerText = 'Please enter a valid number for x';
+        return;
+    }
+
     // Calculate the Lagrange interpolating polynomial
     let interpolationResult = lagrangeInterpolation(xValues, yValues, x);
 
-    // Display the coefficients and the interpolated value
-    document.getElementById('result').innerText =
-        'Coefficients of Lagrange polynomial: ' + interpolationResult.coefficients.join(', ') + '\nInterpolated value at x = ' + x + ' is ' + interpolationResult.result;
+    // Display the interpolated value
+    document.getElementById('result').innerText = 'Interpolated value at x = ' + x + ' is ' + interpolationResult;
 
     // Display the solution steps
     displaySolution(xValues, yValues, x);
 }
 
 function lagrangeInterpolation(xValues, yValues, x) {
-    let coefficients = [];
     let result = 0;
     for (let i = 0; i < xValues.length; i++) {
-        let numerator = [];
-        let denominator = 1;
+        let term = yValues[i];
         for (let j = 0; j < xValues.length; j++) {
             if (j !== i) {
-                numerator.push(`(x - ${xValues[j]})`);
-                denominator *= xValues[i] - xValues[j];
+                term = math.multiply(term, math.divide(math.subtract(x, xValues[j]), math.subtract(xValues[i], xValues[j])));
             }
         }
-        // Pass the value of x directly to the math.evaluate function
-        let term = (math.evaluate(yValues[i].toString()) * math.evaluate(numerator.join(' / '), { x: x })) / denominator;
-        coefficients.push(term);
-        result += term;
+        result = math.add(result, term);
     }
-    return { coefficients: coefficients, result: result };
+    return result;
 }
 
 function displaySolution(xValues, yValues, x) {
@@ -56,7 +55,7 @@ function displaySolution(xValues, yValues, x) {
                 if (j !== xValues.length - 1) {
                     numeratorHTML += ' * ';
                 }
-                denominator *= xValues[i] - xValues[j];
+                denominator = math.multiply(denominator, math.subtract(xValues[i], xValues[j]));
             }
         }
         solutionHTML += `<p>Term ${i + 1}: ${term} * (${numeratorHTML}) / ${denominator}</p>`;
