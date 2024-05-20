@@ -12,29 +12,33 @@
             <div class="title">
                 <h2>Numerical Integration</h2>
                 <h2>Simpson - User Defined</h2>
-                <h2>Sin(eˣ)</h2>
             </div>
             <div class="instructions">
                 <h5>How to use:</h5>
-                <p>Step 1: Type your x and y values separated by commas</p>
-                <p></p>
-                <p>Step 2: Type the x value you want to interpolate</p>
+                <p>Step 1: Enter your f(x)</p>
+                <p>Step 2: Enter your a (Lower Limit)</p>
+                <p>Step 2: Enter your b (Upper Limit)</p>
+                <p>Step 2: Enter your Number of Intervals (even)</p>
             </div>
             <div class="form-wrapper">
-                <label for="xValues">Enter x values</label>
-                <input type="text" id="xValues"><br><br>
-                <label for="yValues">Enter y values</label>
-                <input type="text" id="yValues"><br><br>
-                <label for="x">Enter the x value to interpolate</label>
-                <input type="number" id="x"><br><br>
-                <button onclick="calculateLagrange()">Solve</button><br><br>
+                <label for="function">Enter f(x)</label>
+                <input type="text"  id="fx">
+                <label for="a">Enter a</label>
+                <input type="text" id="a"><br><br>
+                <label for="a">Enter b</label>
+                <input type="text" id="b"><br><br>
+                <label for="n">Enter the n</label>
+                <input type="number" id="n"><br><br>
+                <button onclick="calculateSimpson()">Solve</button><br><br>
             </div>
-            <div id="result" class="result-wrapper"></div>
             <div id="solution" class="solution-wrapper"></div>
+            <div id="result" class="result-wrapper"></div>
+            <div id="error" class="error-wrapper"></div>
+            <div id="steps" class="steps-wrapper"></div>
         </div>
     </div>
 </body>
     <!-- library comes first before the js file location -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.1/math.js" integrity="sha512-B2caA1wJW/b3Jhbhbb9waDjQ7NdG30fkULe9CgCzilQ8CUEdh2NdyGi/GrB+0kQdgfBbUdiLyAP2xdcDzNA6Ow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="/scripts/trapezoidal.js"></script>
+<script src="/scripts/simpsons.js"></script>
 </html>
