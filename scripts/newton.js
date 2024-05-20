@@ -1,41 +1,42 @@
 function newtonRaphsonMethod() {
     let functionInput = document.getElementById('functionByUser').value;
-    let initialGuess = math.bignumber(document.getElementById('initialGuess').value);
+    let initialGuess = math.bignumber(parseFloat(document.getElementById('initialGuess').value));
     let numIteration = parseInt(document.getElementById('numIteration').value);
-    let numLimit = math.bignumber(document.getElementById('numLimit').value);
-    let precision = parseInt(document.getElementById('precisionInput').value);
+    let numLimit = math.bignumber(parseFloat(document.getElementById('numLimit').value));
+    let precision = parseInt(precisionInput.value);
 
     // Handles precision input
     if (isNaN(precision) || precision <= 0 || precision > 64) {
         precision = 20;
-        document.getElementById('precisionInput').value = precision;
+        precisionInput.value = precision;
     }
 
     clearTable();
 
     // Gets the function from user and substitutes x
     let f = (x) => math.evaluate(functionInput, { x: x });
+
     let fPrime = math.derivative(functionInput, 'x');
 
     let x = initialGuess;
     let error = math.bignumber(Infinity);
 
-    for (let i = 0; i < numIteration && error > numLimit; i++) {
-        let fx = math.bignumber(f(x));
-        let fxPrime = math.bignumber(fPrime.evaluate({ x: x }));
+    for (let i = 0; i < numIteration || error.gt(numLimit); i++) {
+        let fx = f(x);
+        let fxPrime = fPrime.evaluate({ x: x });
         let nextX = math.subtract(x, math.divide(fx, fxPrime));
 
         error = math.abs(math.subtract(nextX, x));
         x = nextX;
 
         // Displays
-        let formattedX = math.format(x, { precision: precision });
-        let formattedFx = math.format(fx, { precision: precision });
-        let formattedFxPrime = math.format(fxPrime, { precision: precision });
-        let formattedError = math.format(error, { precision: precision });
+        let formattedX = math.format(x, { notation: 'fixed', precision: precision });
+        let formattedFx = math.format(fx, { notation: 'fixed', precision: precision });
+        let formattedFxPrime = math.format(fxPrime, { notation: 'fixed', precision: precision });
+        let formattedError = math.format(error, { notation: 'fixed', precision: precision });
 
         // Compute x_i+1
-        let nextXValue = math.format(nextX, { precision: precision });
+        let nextXValue = math.format(nextX, { notation: 'fixed', precision: precision });
 
         let newRow = document.createElement('tr');
         newRow.innerHTML = `
