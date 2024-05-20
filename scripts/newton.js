@@ -1,29 +1,28 @@
 function newtonRaphsonMethod() {
     let functionInput = document.getElementById('functionByUser').value;
-    let initialGuess = parseFloat(document.getElementById('initialGuess').value);
+    let initialGuess = math.bignumber(document.getElementById('initialGuess').value);
     let numIteration = parseInt(document.getElementById('numIteration').value);
-    let numLimit = parseFloat(document.getElementById('numLimit').value);
-    let precision = parseInt(precisionInput.value);
+    let numLimit = math.bignumber(document.getElementById('numLimit').value);
+    let precision = parseInt(document.getElementById('precisionInput').value);
 
     // Handles precision input
     if (isNaN(precision) || precision <= 0 || precision > 64) {
         precision = 20;
-        precisionInput.value = precision;
+        document.getElementById('precisionInput').value = precision;
     }
 
     clearTable();
 
     // Gets the function from user and substitutes x
     let f = (x) => math.evaluate(functionInput, { x: x });
-
     let fPrime = math.derivative(functionInput, 'x');
 
     let x = initialGuess;
     let error = math.bignumber(Infinity);
 
-    for (let i = 0; i < numIteration || error > numLimit; i++) {
+    for (let i = 0; i < numIteration && error > numLimit; i++) {
         let fx = math.bignumber(f(x));
-        let fxPrime = fPrime.evaluate({ x: x });
+        let fxPrime = math.bignumber(fPrime.evaluate({ x: x }));
         let nextX = math.subtract(x, math.divide(fx, fxPrime));
 
         error = math.abs(math.subtract(nextX, x));
