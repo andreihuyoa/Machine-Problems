@@ -184,6 +184,10 @@ body {
     color: #007bff;
 }
 
+.form-wrapper {
+    margin-bottom: 10px;
+}
+
 .form-wrapper input {
     width: 100%;
     padding: 10px;
