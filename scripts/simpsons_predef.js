@@ -3,8 +3,14 @@ function calculateSimpson() {
     const b = parseFloat(document.getElementById('b').value);
     let n = parseInt(document.getElementById('n').value);
 
-    if (isNaN(a) || isNaN(b) || isNaN(n) || n <= 0 || n % 2 !== 0) {
-        alert("Please enter valid input values. 'n' must be a positive even integer.");
+    if (isNaN(a) || isNaN(b)) {
+        alert('Please enter valid input values.');
+        return;
+    } else if (n <= 0) {
+        alert("'n' should not be negative or zero.");
+        return;
+    } else if (n % 2 !== 0 || isNaN(n)) {
+        alert("'n' should be greater a positive even integer.");
         return;
     }
 
@@ -42,7 +48,7 @@ function calculateSimpson() {
     let n_prev = n - 1;
     let integral_prev = calculateIntegral(a, b, n_prev, f);
     let error = integral - integral_prev;
-    let relativeError = (integral - integral_prev) / integral;
+    let relativeError = ((integral - integral_prev) / integral) * 100;
 
     document.getElementById('error').innerText = `Error: ${error.toFixed(10)}\nRelative Error: ${relativeError.toFixed(10)}`;
 
@@ -51,7 +57,7 @@ function calculateSimpson() {
 
 function displaySteps(steps) {
     const stepContainer = document.getElementById('steps');
-    stepContainer.innerHTML = '';
+    stepContainer.innerHTML = 'STEPS';
 
     steps.forEach((step, index) => {
         const stepDiv = document.createElement('div');

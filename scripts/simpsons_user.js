@@ -4,8 +4,14 @@ function calculateSimpson() {
     let n = parseInt(document.getElementById('n').value);
     const expression = document.getElementById('fx').value;
 
-    if (isNaN(a) || isNaN(b) || isNaN(n) || n <= 0 || n % 2 !== 0) {
-        alert("Please enter valid input values. 'n' must be a positive even integer.");
+    if (isNaN(a) || isNaN(b)) {
+        alert('Please enter valid input values.');
+        return;
+    } else if (n <= 0) {
+        alert("'n' should not be negative or zero.");
+        return;
+    } else if (n % 2 !== 0 || isNaN(n)) {
+        alert("'n' should be greater a positive even integer.");
         return;
     }
 
@@ -47,11 +53,10 @@ function calculateSimpson() {
     // Calculate error and relative error
     let n_prev = n - 1;
     let integral_prev = calculateIntegral(a, b, n_prev, expression);
-    let error = math.abs(n - integral_prev);
-    let relativeError = (n - integral_prev) / n;
-    let relativeErrorPer = ((n - integral_prev) / n) * 100;
+    let error = math.abs(integral - integral_prev);
+    let relativeErrorPer = ((integral - integral_prev) / integral) * 100;
 
-    document.getElementById('error').innerText = `Error: ${error}\nRelative Error: ${relativeError}\n Relative Error(%): ${relativeErrorPer}`;
+    document.getElementById('error').innerText = `Error: ${error}\n Relative Error(%): ${relativeErrorPer}`;
 
     displaySteps(steps);
 }
@@ -62,7 +67,7 @@ function displaySteps(steps) {
 
     steps.forEach((step, index) => {
         const stepDiv = document.createElement('div');
-        const integralValue = step.integral.toFixed(32).replace(/\.?0+$/, ''); // Remove trailing zeros
+        const integralValue = step.integral.toFixed(32).replace(/\.?0+$/, '');
         stepDiv.innerText = `Step ${index + 1}: n = ${step.n}, Integral = ${integralValue}`;
         stepContainer.appendChild(stepDiv);
     });
