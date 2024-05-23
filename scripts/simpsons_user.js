@@ -20,7 +20,15 @@ function calculateSimpson() {
         return;
     }
 
-    const f = (x) => math.evaluate(expression, { x });
+    const f = (x) => {
+        try {
+            return math.evaluate(expression, { x });
+        } catch (error) {
+            alert('An error occurred while evaluating the expression: ' + error.message);
+            console.error(error);
+            throw error;
+        }
+    };
 
     const h = (b - a) / n;
 
