@@ -1,3 +1,11 @@
-# Machine-Problems
+# Machine Problem Project for Numerical Analysis
 
- i </3 MATH ❤️
+## Installation
+
+Download the project and just open with live server lol
+    
+## Library Used
+
+- math.js
+
+
